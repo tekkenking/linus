@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the FeedsPage page.
@@ -17,11 +17,21 @@ export class FeedsPage {
 
   appname: string = 'Repota';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public modalCtrl: ModalController,
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FeedsPage');
+  }
+
+  gotoLogin() {
+    let modal = this.modalCtrl.create('AuthPage');
+
+    modal.present();
   }
 
 }
